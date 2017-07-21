@@ -12,6 +12,20 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .panel-body{
+            padding-bottom: 10px;
+        }
+        .form-control {
+            height: 30px;
+        }
+        .panel{
+            margin-bottom: 5px;
+        }
+        </style>
 </head>
 <body>
     <div id="app">
@@ -53,6 +67,11 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="\profile">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -63,6 +82,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    
                                 </ul>
                             </li>
                         @endif

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\Tweet;
 use Carbon\Carbon;
+use Facebook\Facebook;
+use App\FacebookUser;
 class TweetController extends Controller
 {
     public function __construct()
@@ -29,8 +31,12 @@ class TweetController extends Controller
     		$tweet = new Tweet;
     		$tweet->body = $request['body'];
     		$tweet->published_at = Carbon::now();
-    		$tweet->user_id = Auth::user()->id;
+            $user = Auth::user();
+    		$tweet->user_id = $user->id;
     		$tweet->save();
-    		return redirect('home');
+            
+
+            
+    		//return redirect('home');
     }
 }

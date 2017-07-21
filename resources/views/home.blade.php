@@ -6,13 +6,17 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Tweets</div>
-
-                <div class="panel-body">
+                <div class="panel-heading">Feed</div>
                     @foreach ($user_tweets as $tweet)
                         @include('layouts.tweetView')
                     @endforeach
-                </div>
+                    @if (count($user_tweets) == 0)
+                        <div class="panel-body">
+                            <br>
+                            <p class="lead"> Nothing to view yet ! </p>
+                            <br>
+                        </div>
+                    @endif
             </div>
         </div>
     </div>

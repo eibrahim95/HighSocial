@@ -15,8 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'facebook_id'
     ];
+    protected $attributes = ['facebook_id' => NULL ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -24,11 +25,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
 
     public function tweets()
     {
         return $this->hasMany('App\Tweet');
+    }
+    public function facebookPosts()
+    {
+        return $this->hasMany('App\FacebookPost');
     }
 }
