@@ -18,7 +18,7 @@ class CreateTweetsTable extends Migration
 
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->timestamp('published_at');
+            $table->timestamp('published_at')->nullable();
             $table->text('body');
             $table->timestamps();
 
