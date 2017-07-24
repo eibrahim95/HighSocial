@@ -13,3 +13,4 @@ yarn-error.log
 server.php
 /storage/logs/*
 /bootstrap/cache/*
+/storage/*
