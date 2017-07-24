@@ -7,8 +7,8 @@
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a data-toggle="tab" href="#gn">General Infromation</a></li>
                         <li><a data-toggle="tab" href="#fb">Facebook Connection</a></li>
-                        <li><a data-toggle="tab" href="#fb">Twitter Connection</a></li>
-                        <li><a data-toggle="tab" href="#fb">Instagram Connection</a></li>
+                        <li><a data-toggle="tab" href="#tw">Twitter Connection</a></li>
+                        <li><a data-toggle="tab" href="#in">Instagram Connection</a></li>
                     </ul>
                 </div>
             </div>
@@ -52,6 +52,15 @@
                 		<?php else: ?>
                 			<p>Connected to Facebook</p>
                 		<?php endif; ?>
+                	</div>
+                </div>
+                <div id="tw" class="col-md-5 panel tab-pane fade in">
+                	<div class="panel-body">
+                	</div>
+                </div>
+
+                <div id="in" class="col-md-5 panel tab-pane fade in">
+                	<div class="panel-body">
                 	</div>
                 </div>
         </div>
