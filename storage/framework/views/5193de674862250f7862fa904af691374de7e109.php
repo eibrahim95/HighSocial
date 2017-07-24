@@ -40,7 +40,15 @@
                 <div id="fb" class="col-md-5 panel tab-pane fade in">
                 	<div class="panel-body">
                 		<?php if(Auth::user()->facebook_id == NULL): ?>
-                			<p>Not Connected to Facebook<span class="pull-right"><a href="#">Connect Now</a></span></p>
+                			<meta name="_token" content="<?php echo e(csrf_token()); ?>">
+                			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                			<p>Not Connected to Facebook<span id="btn-login" class="pull-right"><button class="btn btn-primary" >Connect Now</button></span></p>
+
+                			<?php if(App::environment() != 'local'): ?>
+        						<script src="<?php echo e(secure_asset('js/facebook_connect.js')); ?>"></script>
+    						<?php else: ?>
+        						<script src="<?php echo e(asset('js/facebook_connect.js')); ?>"></script>
+    						<?php endif; ?>
                 		<?php else: ?>
                 			<p>Connected to Facebook</p>
                 		<?php endif; ?>

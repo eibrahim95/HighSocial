@@ -13,10 +13,6 @@ class FacebookUserController extends Controller
     {
         $this->middleware('auth');
     }
-    public function connect()
-    {
-    	return view('facebook');
-    }
     public function store(Facebook $fb) //method injection
     {
         // retrieve form input parameters
@@ -44,6 +40,6 @@ class FacebookUserController extends Controller
         // call api to retrieve person's public_profile details
         $fields = "id,cover,name,first_name,last_name,age_range,link,gender,locale,picture,timezone,updated_time,verified";
         $fb_user = $fb->get('/me?fields='.$fields)->getGraphUser();
-        return redirect('home');
+         return back();
     }  
 }

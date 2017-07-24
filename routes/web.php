@@ -28,7 +28,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tweet', 'FacebookPostController@index');
 Route::post('/tweet', 'FacebookPostController@store');
 
-Route::get('/facebook_connect', 'FacebookUserController@connect');
-Route::post('/facebook', 'FacebookUserController@store');
-
 Route::get('{id}', 'ProfileController@index');
+Route::post('{id}', 'FacebookUserController@store');
