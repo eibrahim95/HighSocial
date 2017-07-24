@@ -12,17 +12,21 @@
                 </div>
                 <div class="tab-content">
                 <div id="fb" class="panel-body tab-pane fade in active">
-                    {!! Form::open(['action' => 'FacebookPostController@store']) !!}
+                    <?php echo Form::open(['action' => 'FacebookPostController@store']); ?>
+
                     	<div class='form-group'>
-    					{!! Form::textarea('body', '', 
-                            ['rows'=> '3', 'class' => 'form-control', 'placeholder' => 'What\'s on your mind ?']) !!}
+    					<?php echo Form::textarea('body', '', 
+                            ['rows'=> '3', 'class' => 'form-control', 'placeholder' => 'What\'s on your mind ?']); ?>
+
     					</div>
     					<div class='form-group'>
-    					{!! Form::submit('submit', ['class' => 'btn btn-primary  pull-right']) !!}
+    					<?php echo Form::submit('submit', ['class' => 'btn btn-primary  pull-right']); ?>
+
     					</div>
-					{!! Form::close() !!}
+					<?php echo Form::close(); ?>
+
                 </div>
-                <div id="mn" class="panel-body tab-pane fade in ">
+                <div id="mn" class="panel-body tab-pane fade in active">
                 <p>flkfdvnj</p>
                 </div>
                 </div>

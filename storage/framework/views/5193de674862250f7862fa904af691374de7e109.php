@@ -1,0 +1,53 @@
+<?php $__env->startSection('content'); ?>
+	<div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <div class="panel panel-default">
+            	<div class="panel-heading"><?php echo e(Auth::user()->name); ?></div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a data-toggle="tab" href="#gn">General Infromation</a></li>
+                        <li><a data-toggle="tab" href="#fb">Facebook Connection</a></li>
+                        <li><a data-toggle="tab" href="#fb">Twitter Connection</a></li>
+                        <li><a data-toggle="tab" href="#fb">Instagram Connection</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="gn" class="col-md-5 panel tab-pane fade in active">
+                	<div class="panel-body">
+                		<table class="table">
+                			<thead>
+                				<tr>
+                    				<th><p>Name : </p></th>
+                    				<th><p><?php echo e(Auth::user()->name); ?></p></th>
+                    			</tr>
+                			</thead>
+                			<tbody>
+                    			<tr>
+                    				<td><p>Email : </p></td>
+                    				<td><?php echo e(Auth::user()->email); ?></td>
+                    			</tr>
+                    			<tr>
+                    				<td><p>Joined : </p></td>
+                    				<td><?php echo e(Auth::user()->created_at); ?></td>
+                    			</tr>
+                    		</tbody>
+                  		</table>
+                  	</div>
+                </div>
+             
+                <div id="fb" class="col-md-5 panel tab-pane fade in">
+                	<div class="panel-body">
+                		<?php if(Auth::user()->facebook_id == NULL): ?>
+                			<p>Not Connected to Facebook<span class="pull-right"><a href="#">Connect Now</a></span></p>
+                		<?php else: ?>
+                			<p>Connected to Facebook</p>
+                		<?php endif; ?>
+                	</div>
+                </div>
+        </div>
+	</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -31,6 +31,4 @@ Route::post('/tweet', 'FacebookPostController@store');
 Route::get('/facebook_connect', 'FacebookUserController@connect');
 Route::post('/facebook', 'FacebookUserController@store');
 
-Route::get('profile', function(){
-	return "HHH";
-});
+Route::get('{id}', 'ProfileController@index');
