@@ -28,6 +28,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        if (env('APP_ENV') === 'production') {
+            $this->app['request']->server->set('HTTPS', true);
+        }
         $this->app->singleton(Facebook::class, function ($app) {
             return new Facebook(config('facebook.config'));
         });
