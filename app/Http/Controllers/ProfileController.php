@@ -12,6 +12,10 @@ class ProfileController extends Controller
     }
     public function index($id)
     {
+    	if (Auth::user()->id != $id)
+    	{
+    		return redirect('home');
+    	}
     	if (isset( $_GET['tab'] ))
     		$tab = $_GET['tab'];
     	else

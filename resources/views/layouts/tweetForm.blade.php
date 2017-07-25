@@ -22,7 +22,21 @@
     					</div>
 					{!! Form::close() !!}
                 </div>
-                <div id="mn" class="panel-body tab-pane fade in ">
+                <div id="tw" class="panel-body tab-pane fade in ">
+                {!! Form::open(['action' => 'TwitterTweetController@store']) !!}
+                        <div class='form-group'>
+                        {!! Form::textarea('body', '', 
+                            ['rows'=> '3', 'maxlength' => '140', 'class' => 'form-control', 'placeholder' => 'What\'s on your mind ?']) !!}
+                        </div>
+                        <div class='form-group'>
+                        {!! Form::submit('submit', ['class' => 'btn btn-primary  pull-right']) !!}
+                        </div>
+                    {!! Form::close() !!}
+                </div>
+                <div id="in" class="panel-body tab-pane fade in ">
+                <p>flkfdvnj</p>
+                </div>
+                <div id="hi" class="panel-body tab-pane fade in ">
                 <p>flkfdvnj</p>
                 </div>
                 </div>

@@ -86,8 +86,8 @@ class TwitterUserController extends Controller
 			$user->save();
 
 			Session::put('access_token', $token);
-
-			return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+			//return  Twitter::postTweet(['status' => 'test test test'. 'format' => 'json']);
+			//return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
 		}
 
 		return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');

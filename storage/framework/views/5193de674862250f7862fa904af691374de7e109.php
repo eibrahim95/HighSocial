@@ -50,7 +50,7 @@
         						<script src="<?php echo e(asset('js/facebook_connect.js')); ?>"></script>
     						<?php endif; ?>
                 		<?php else: ?>
-                			<p>Connected to Facebook</p>
+                			<p>Connected to Facebook<span id="btn-login" class="pull-right"><button class="btn btn-primary" >Disconnect</button></span></p>
                 		<?php endif; ?>
                 	</div>
                 </div>
@@ -60,7 +60,7 @@
                 			<p>Not Connected to Twitter<a target="_blank" href="/twitter/connect"><span class="pull-right"><button class="btn btn-primary" >Connect Now</button></span></a></p>
 
                 		<?php else: ?>
-                			<p>Connected to Twitter</p>
+                			<p>Connected to Twitter<span id="btn-login" class="pull-right"><button class="btn btn-primary" >Disconnect</button></span></p>
                 		<?php endif; ?>
                 	</div>
                 </div>

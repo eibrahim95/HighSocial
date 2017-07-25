@@ -25,8 +25,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/tweet', 'FacebookPostController@index');
-Route::post('/tweet', 'FacebookPostController@store');
+Route::get('/fbpost', 'FacebookPostController@index');
+Route::post('/fbpost', 'FacebookPostController@store');
 
 
 Route::get('twitter/connect', 'TwitterUserController@connect');
@@ -39,5 +39,7 @@ Route::get('twitter/logout', ['as' => 'twitter.logout', function(){
 	Session::forget('access_token');
 	return Redirect::to('/')->with('flash_notice', 'You\'ve successfully logged out!');
 }]);
+
+Route::post('/tweet', 'TwitterTweetController@store');
 Route::get('{id}', 'ProfileController@index');
 Route::post('{id}', 'FacebookUserController@store');
