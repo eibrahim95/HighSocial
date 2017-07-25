@@ -5,9 +5,9 @@
                 <div class="panel-heading">
                     <ul class="nav nav-tabs">
                         <li class="active"><a data-toggle="tab" href="#fb">Facebook Post</a></li>
-                        <li><a data-toggle="tab" href="#mn">Twitter Tweet</a></li>
-                        <li><a data-toggle="tab" href="#fb">Instagram Photo</a></li>
-                        <li><a data-toggle="tab" href="#fb">HighSocial Post</a></li>
+                        <li><a data-toggle="tab" href="#tw">Twitter Tweet</a></li>
+                        <li><a data-toggle="tab" href="#in">Instagram Photo</a></li>
+                        <li><a data-toggle="tab" href="#hi">HighSocial Post</a></li>
                     </ul>
                 </div>
                 <div class="tab-content">
@@ -26,7 +26,7 @@
 					<?php echo Form::close(); ?>
 
                 </div>
-                <div id="mn" class="panel-body tab-pane fade in active">
+                <div id="mn" class="panel-body tab-pane fade in ">
                 <p>flkfdvnj</p>
                 </div>
                 </div>

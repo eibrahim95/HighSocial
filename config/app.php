@@ -179,6 +179,7 @@ return [
 
         // custom
         Collective\Html\HtmlServiceProvider::class,
+        Thujohn\Twitter\TwitterServiceProvider::class,
 
     ],
 
@@ -231,6 +232,9 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
+
+        'Input' => Illuminate\Support\Facades\Input::class,
 
     ],
 

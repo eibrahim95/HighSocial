@@ -57,6 +57,12 @@
                 </div>
                 <div id="tw" class="col-md-5 panel tab-pane fade in">
                 	<div class="panel-body">
+                	@if (Auth::user()->twitter_id == NULL)
+                			<p>Not Connected to Twitter<a target="_blank" href="/twitter/connect"><span class="pull-right"><button class="btn btn-primary" >Connect Now</button></span></a></p>
+
+                		@else
+                			<p>Connected to Twitter</p>
+                		@endif
                 	</div>
                 </div>
 
