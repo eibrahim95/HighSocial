@@ -1,2 +1,2 @@
-# Twitter
-A Twitter built using laravel
+# HighSocial
+Top Stories from Social Media
