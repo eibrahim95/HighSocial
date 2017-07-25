@@ -67,6 +67,12 @@
 
                 <div id="in" class="col-md-5 panel tab-pane fade in">
                 	<div class="panel-body">
+                		<?php if(Auth::user()->instagram_id == NULL): ?>				   
+                			<p>Not Connected to Instagram<a target="_blank" href="/instagram/connect"><span class="pull-right"><button class="btn btn-primary" >Connect Now</button></span></a></p>
+
+                		<?php else: ?>
+                			<p>Connected to Instagram<span id="btn-login" class="pull-right"><button class="btn btn-primary" >Disconnect</button></span></p>
+                		<?php endif; ?>
                 	</div>
                 </div>
         </div>

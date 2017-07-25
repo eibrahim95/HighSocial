@@ -40,6 +40,10 @@ Route::get('twitter/logout', ['as' => 'twitter.logout', function(){
 	return Redirect::to('/')->with('flash_notice', 'You\'ve successfully logged out!');
 }]);
 
+
+Route::get('instagram/connect', 'InstagramUserController@connect');
+Route::get('instagram/callback', 'InstagramUserController@store');
+
 Route::post('/tweet', 'TwitterTweetController@store');
 Route::get('{id}', 'ProfileController@index');
 Route::post('{id}', 'FacebookUserController@store');

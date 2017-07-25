@@ -31,6 +31,6 @@ class TwitterTweetController extends Controller
         Twitter::reconfig(['token' => $token, 'secret' => $token_secret]);
         Twitter::postTweet(['status' => $request['body']]);
 
-        return redirect('home');
+        return Redirect::to('/')->with('flash_notice', 'Successfully Tweeted');
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use Facebook\Facebook;
 use App\FacebookUser;
+use Redirect;
 class FacebookPostController extends Controller
 {
     public function __construct()
@@ -74,7 +75,7 @@ class FacebookPostController extends Controller
             $facebook_post = FacebookPost::create(['user_id' => $user->id, 'post_id' => $graphNode['id']]);
             $response = $fb->get('/'.$graphNode['id'], $access_token);
             $graphNode = $response->getGraphNode();
-            echo $graphNode['message'];
+            return Redirect::to('/')->with('flash_notice', 'Successfully Posted');
     }
 
     /**

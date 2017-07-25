@@ -17,6 +17,9 @@ class TwitterUserController extends Controller
     }
 	public function connect()
 	{
+	$user  = Auth::user();
+	if ($user->twitter_id != NULL)
+		return redirect('/'.$user->id);
 	// your SIGN IN WITH TWITTER  button should point to this route
 	$sign_in_twitter = true;
 	$force_login = false;
@@ -40,6 +43,9 @@ class TwitterUserController extends Controller
 	}
 	public function store()
 	{
+	$user  = Auth::user();
+	if ($user->twitter_id != NULL)
+		return redirect('/'.$user->id);
 	// You should set this route on your Twitter Application settings as the callback
 	// https://apps.twitter.com/app/YOUR-APP-ID/settings
 	if (Session::has('oauth_request_token'))
@@ -87,7 +93,7 @@ class TwitterUserController extends Controller
 
 			Session::put('access_token', $token);
 			//return  Twitter::postTweet(['status' => 'test test test'. 'format' => 'json']);
-			//return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+			return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
 		}
 
 		return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
