@@ -1,27 +1,17 @@
 @extends('layouts.app')
 @section('content')
-            <div class="content">
-                <!--
-                <div class="title m-b-md">
-                    {{ config('app.name', 'Laravel') }}
-                </div>
-                
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div> -->
-            </div>
-        </div>
+<div class="container">
         <div class="row">
-            <div class="col-sm-6">
-                
+            <div class="col-md-8 col-sm-6">
+                <div style="text-align: center; font-size: 16px; font-weight: bold;margin-top:200px"><p>HighSocial</p>
+                <p>Top Stories From Social Media</p>
+                <p>&copy HighSocial 2017</p>
+                </div>
             </div>
-            <div class="col-sm-6">
-                @include('layouts.login')
-                @include('layouts.register')
+            <div class="col-md-4 col-sm-6">
+                @include('layouts.loginForm')
+                @include('layouts.registerForm')
             </div>
         </div>
+</div>
 @endsection

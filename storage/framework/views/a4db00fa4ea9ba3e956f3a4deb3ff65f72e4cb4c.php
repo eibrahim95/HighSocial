@@ -17,6 +17,16 @@
         <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <?php endif; ?>
     <style>
+        @media (min-width: 1400px)
+        {
+            .container
+            {
+                width:1370px;
+            }
+        }
+        body {
+            font-size: 12px;
+        }
         .form-group {
             margin-bottom: 10px;
         }
