@@ -25,11 +25,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/fbpost', 'FacebookPostController@index');
+Route::get('/facebook/disconnect', 'FacebookUserController@disconnect');
 Route::post('/fbpost', 'FacebookPostController@store');
 
 
 Route::get('twitter/connect', 'TwitterUserController@connect');
+Route::get('twitter/disconnect', 'TwitterUserController@disconnect');
 Route::get('twitter/callback', ['as'=>'twitter.callback', 'uses' => 'TwitterUserController@store']);
 Route::get('twitter/error', ['as' => 'twitter.error', function(){
 	dd('some error');

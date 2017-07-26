@@ -17,7 +17,7 @@ class HighSocialPostController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'body' => 'required|string|max:200',
+            'body' => 'required|string',
         ]);
     }
     public function index()

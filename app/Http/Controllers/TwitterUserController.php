@@ -17,30 +17,42 @@ class TwitterUserController extends Controller
     }
 	public function connect()
 	{
-	$user  = Auth::user();
-	if ($user->twitter_id != NULL)
-		return redirect('/'.$user->id);
+		$user  = Auth::user();
+		if ($user->twitter_id != NULL)
+			return redirect('/'.$user->id);
 	// your SIGN IN WITH TWITTER  button should point to this route
-	$sign_in_twitter = true;
-	$force_login = false;
+		$sign_in_twitter = true;
+		$force_login = false;
 
 	// Make sure we make this request w/o tokens, overwrite the default values in case of login.
-	Twitter::reconfig(['token' => '', 'secret' => '']);
-	$token = Twitter::getRequestToken(route('twitter.callback'));
+		Twitter::reconfig(['token' => '', 'secret' => '']);
+		$token = Twitter::getRequestToken(route('twitter.callback'));
 
-	if (isset($token['oauth_token_secret']))
-	{
-		$url = Twitter::getAuthorizeURL($token, $sign_in_twitter, $force_login);
+		if (isset($token['oauth_token_secret']))
+		{
+			$url = Twitter::getAuthorizeURL($token, $sign_in_twitter, $force_login);
 
-		Session::put('oauth_state', 'start');
-		Session::put('oauth_request_token', $token['oauth_token']);
-		Session::put('oauth_request_token_secret', $token['oauth_token_secret']);
+			Session::put('oauth_state', 'start');
+			Session::put('oauth_request_token', $token['oauth_token']);
+			Session::put('oauth_request_token_secret', $token['oauth_token_secret']);
 
-		return Redirect::to($url);
-	}
+			return Redirect::to($url);
+		}
 
-	return Redirect::route('twitter.error');
-	}
+		return Redirect::route('twitter.error');
+		}
+	public function disconnect()
+    {
+        $user = Auth::user();
+        if ($user->twitter_id == NULL)
+        {
+            return redirect('home');
+        }
+        $user->twitter_id = NULL;
+        $user->save();
+        
+        return redirect('home');
+    }
 	public function store()
 	{
 	$user  = Auth::user();
@@ -93,7 +105,7 @@ class TwitterUserController extends Controller
 
 			Session::put('access_token', $token);
 			//return  Twitter::postTweet(['status' => 'test test test'. 'format' => 'json']);
-			return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+			return Redirect::to('/');
 		}
 
 		return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');

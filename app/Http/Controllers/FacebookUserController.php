@@ -13,6 +13,18 @@ class FacebookUserController extends Controller
     {
         $this->middleware('auth');
     }
+    public function disconnect()
+    {
+        $user = Auth::user();
+        if ($user->facebook_id == NULL)
+        {
+            return redirect('home');
+        }
+        $user->facebook_id = NULL;
+        $user->save();
+        
+        return redirect('home');
+    }
     public function store(Facebook $fb) //method injection
     {
         // retrieve form input parameters

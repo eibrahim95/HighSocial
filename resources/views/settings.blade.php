@@ -13,16 +13,16 @@
             	<div class="panel-heading">{{ Auth::user()->name }}</div>
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a data-toggle="tab" href="#gn">General Infromation</a></li>
-                        <li><a data-toggle="tab" href="#fb">Facebook Connection</a></li>
-                        <li><a data-toggle="tab" href="#tw">Twitter Connection</a></li>
-                        <li><a data-toggle="tab" href="#in">Instagram Connection</a></li>
+                        <li class="{{ $active['gn'] }}"><a data-toggle="tab" href="#gn">General Infromation</a></li>
+                        <li class="{{ $active['fb'] }}"><a data-toggle="tab" href="#fb">Facebook Connection</a></li>
+                        <li class="{{ $active['tw'] }}"><a data-toggle="tab" href="#tw">Twitter Connection</a></li>
+                        <li class="{{ $active['in'] }}"><a data-toggle="tab" href="#in">Instagram Connection</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="tab-content">
-            <div id="gn" class="col-md-8 panel tab-pane fade in active">
+            <div id="gn" class="col-md-8 panel tab-pane fade in {{ $active['gn'] }}">
                 	<div class="panel-body">
                 		<table class="table">
                 			<thead>
@@ -45,7 +45,7 @@
                   	</div>
                 </div>
              
-                <div id="fb" class="col-md-8 panel tab-pane fade in">
+                <div id="fb" class="col-md-8 panel tab-pane fade in {{ $active['fb'] }}">
                 	<div class="panel-body">
                 		@if (Auth::user()->facebook_id == NULL)
                 			<meta name="_token" content="{{ csrf_token() }}">
@@ -58,22 +58,22 @@
         						<script src="{{ asset('js/facebook_connect.js') }}"></script>
     						@endif
                 		@else
-                			<p>Connected to Facebook<span id="btn-login" class="pull-right"><button class="btn btn-primary" >Disconnect</button></span></p>
+                			<p>Connected to Facebook<a target="_blank" href="/facebook/disconnect"><span id="btn-login" class="pull-right"><button class="btn btn-primary" >Disconnect</button></span></a></p>
                 		@endif
                 	</div>
                 </div>
-                <div id="tw" class="col-md-8 panel tab-pane fade in">
+                <div id="tw" class="col-md-8 panel tab-pane fade in {{ $active['tw'] }}">
                 	<div class="panel-body">
                 	@if (Auth::user()->twitter_id == NULL)
                 			<p>Not Connected to Twitter<a target="_blank" href="/twitter/connect"><span class="pull-right"><button class="btn btn-primary" >Connect Now</button></span></a></p>
 
                 		@else
-                			<p>Connected to Twitter<span id="btn-login" class="pull-right"><button class="btn btn-primary" >Disconnect</button></span></p>
+                			<p>Connected to Twitter<a target="_blank" href="/twitter/disconnect"><span id="btn-login" class="pull-right"><button class="btn btn-primary" >Disconnect</button></span></a></p>
                 		@endif
                 	</div>
                 </div>
 
-                <div id="in" class="col-md-8 panel tab-pane fade in">
+                <div id="in" class="col-md-8 panel tab-pane fade in {{ $active['in'] }}">
                 	<div class="panel-body">
                 		@if (Auth::user()->instagram_id == NULL)				   
                 			<p>Not Connected to Instagram<a target="_blank" href="/instagram/connect"><span class="pull-right"><button class="btn btn-primary" >Connect Now</button></span></a></p>

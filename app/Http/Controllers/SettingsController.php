@@ -16,8 +16,15 @@ class SettingsController extends Controller
     	if (isset( $_GET['tab'] ))
     		$tab = $_GET['tab'];
     	else
-    		$tab = 'home';
-    	return view('settings', compact('tab'));
+    		$tab = 'gn';
+    	$active = Array('gn' => '', 'fb' => '', 'tw' => '', 'in' => '');
+    	if (in_array( $tab, ['gn', 'fb', 'tw', 'in']))
+    	{
+    		$active[$tab] = 'active';
+    	}
+    	else
+    		$active['gn'] = 'active';
+    	return view('settings', compact('active'));
     }
 }
 
