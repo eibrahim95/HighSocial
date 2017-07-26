@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
 	<div class="container">
-		@include('layouts.tweetForm')
+		@include('layouts.postForm')
 	</div>
 @endsection

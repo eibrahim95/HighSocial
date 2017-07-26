@@ -45,5 +45,7 @@ Route::get('instagram/connect', 'InstagramUserController@connect');
 Route::get('instagram/callback', 'InstagramUserController@store');
 
 Route::post('/tweet', 'TwitterTweetController@store');
+Route::post('/post', 'HighSocialPostController@store');
+
 Route::get('{id}', 'ProfileController@index');
 Route::post('{id}', 'FacebookUserController@store');

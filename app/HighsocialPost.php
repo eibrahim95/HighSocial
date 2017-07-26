@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tweet extends Model
+class HighsocialPost extends Model
 {
     //
     protected $fillable = [

@@ -2,15 +2,18 @@
 
 @section('content')
 <div class="container">
-    @include('layouts.tweetForm')
+    @include('layouts.postForm')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Feed</div>
-                    @foreach ($user_tweets as $tweet)
-                        @include('layouts.tweetView')
+                    @foreach ($user_posts as $post)
+                        @include('layouts.postView')
                     @endforeach
-                    @if (count($user_tweets) == 0)
+                    @foreach ($fb_posts as $post)
+                        @include('layouts.postView')
+                    @endforeach
+                    @if (count($user_posts) == 0 and count($fb_posts) ==0)
                         <div class="panel-body">
                             <br>
                             <p class="lead"> Nothing to view yet ! </p>

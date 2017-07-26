@@ -28,9 +28,9 @@ class User extends Authenticatable
         'password', 'remember_token'
     ];
 
-    public function tweets()
+    public function highsocialPosts()
     {
-        return $this->hasMany('App\Tweet');
+        return $this->hasMany('App\HighsocialPost');
     }
     public function facebookPosts()
     {
