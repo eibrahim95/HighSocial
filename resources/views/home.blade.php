@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-4">
+        <div class="col-md-3 col-sm-3">
             <div class="panel panel-default">
                 @if (App::environment() != 'local')
                     <img width="200" heigh="200" src="{{ secure_asset('images/default.jpeg') }}">
@@ -22,10 +22,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-sm-8">
-            @include('layouts.postForm')
-            <div class="panel panel-default">
-                <div class="panel-heading">Feed</div>
+        <div class="col-md-6 col-sm-6">
+                    @include('layouts.postForm')
                     @foreach ($user_posts as $post)
                         @include('layouts.postView')
                     @endforeach
@@ -39,7 +37,7 @@
                             <br>
                         </div>
                     @endif
-            </div>
+            
         </div>
     </div>
 </div>

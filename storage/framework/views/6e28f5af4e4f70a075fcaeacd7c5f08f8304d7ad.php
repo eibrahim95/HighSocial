@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-sm-4">
+        <div class="col-md-3 col-sm-3">
             <div class="panel panel-default">
                 <?php if(App::environment() != 'local'): ?>
                     <img width="200" heigh="200" src="<?php echo e(secure_asset('images/default.jpeg')); ?>">
@@ -20,10 +20,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-sm-8">
-            <?php echo $__env->make('layouts.postForm', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-            <div class="panel panel-default">
-                <div class="panel-heading">Feed</div>
+        <div class="col-md-6 col-sm-6">
+                    <?php echo $__env->make('layouts.postForm', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                     <?php $__currentLoopData = $user_posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php echo $__env->make('layouts.postView', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -37,7 +35,7 @@
                             <br>
                         </div>
                     <?php endif; ?>
-            </div>
+            
         </div>
     </div>
 </div>
