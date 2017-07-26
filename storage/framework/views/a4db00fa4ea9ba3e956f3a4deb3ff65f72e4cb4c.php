@@ -39,7 +39,8 @@
         .panel{
             margin-bottom: 5px;
         }
-        </style>
+    </style>
+    <?php echo $__env->yieldContent('head'); ?>
 </head>
 <body>
     <div id="app">

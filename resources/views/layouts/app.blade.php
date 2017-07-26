@@ -39,7 +39,8 @@
         .panel{
             margin-bottom: 5px;
         }
-        </style>
+    </style>
+    @yield('head')
 </head>
 <body>
     <div id="app">
