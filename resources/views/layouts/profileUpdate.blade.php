@@ -15,7 +15,7 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="form-group" style="height: 48%">
 					<label for="image" style="text-align: center;padding-top:17%;cursor: pointer; width:50%; height:70%; border: 1px solid currentColor; margin:0% 24%">Upload Image</label>
-					<input id="image" type="file" name="image" class="form-control" style="opacity: 0">
+					<input id="image" type="file" name="image" class="form-control" style="display: none;">
 				</div>
 				<div class="form-group" style="height: 48%">
 					<label>Add Description :</label>
@@ -68,7 +68,7 @@
     					form.setAttribute("method", "post");
     					form.setAttribute("action", "/ajaxImageUpload");
     					form.setAttribute("enctype", "multipart/form-data");
-    					var params = {"title" : desc.value, "image" : preview.src, _token:'{{ csrf_token() }}'}
+    					var params = {"title" : desc.value, "image" : preview.src, _token:'{{ csrf_token() }}', 'type' : 0}
     					for(var key in params) {
         					if(params.hasOwnProperty(key)) {
             				var hiddenField = document.createElement("input");

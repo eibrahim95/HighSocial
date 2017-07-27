@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-3 col-sm-3">
             <div class="panel panel-default">
-                    <img width="200" heigh="200" src="<?php echo e($user_additional->profile_pic); ?>">
+                    <img width="200" height="200" src="<?php echo e($user_additional->profile_pic); ?>">
                 <div class="panel-heading"><?php echo e(Auth::user()->name); ?></div>
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">
