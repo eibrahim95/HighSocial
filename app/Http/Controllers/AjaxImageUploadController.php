@@ -70,15 +70,15 @@ class AjaxImageUploadController extends Controller
           $imageType = $matches[1];
           $imageData = base64_decode($matches[2]);
           $image = Image::make($imageData);
-          $image->save(str_replace(' ', '_', public_path().'/images/' . Auth::user()->id.'_'.Carbon::now().$imageType));
+          $image->save(str_replace(' ', '_', public_path().'/images/' . Auth::user()->id.'_'.Carbon::now().'.'.$imageType));
           $size = min($image->width(), $image->height());
       	  if ($type == 0 )
       	  	$image = $image->fit($size);
       	  else
       	  	$image = $image->fit(700, 280);
-        if ($image->save(public_path().$local_path . Auth::user()->id.$imageType)) {
+        if ($image->save(public_path().$local_path . Auth::user()->id.'.'.$imageType)) {
         	$user_additional = AdditionalInfo::where('user_id', Auth::user()->id)->first();
-        	$user_additional[$pic] = $local_path . Auth::user()->id.$imageType;
+        	$user_additional[$pic] = $local_path . Auth::user()->id.'.'.$imageType;
         	$user_additional->save();
             return back();
           } else {
