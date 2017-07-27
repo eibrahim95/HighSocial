@@ -3,12 +3,7 @@
     <div class="row">
         <div class="col-md-3 col-sm-3">
             <div class="panel panel-default">
-                <?php if(App::environment() != 'local'): ?>
-                    <img width="200" heigh="200" src="<?php echo e(secure_asset('images/default.jpeg')); ?>">
-                <?php else: ?>
-                    <img width="200" heigh="200" style="margin:0 auto" src="<?php echo e(asset('images/default.jpeg')); ?>">
-                <?php endif; ?>
-            
+                    <img width="200" heigh="200" src="<?php echo e($user_additional->profile_pic); ?>">
                 <div class="panel-heading"><?php echo e(Auth::user()->name); ?></div>
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">

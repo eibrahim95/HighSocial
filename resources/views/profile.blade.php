@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('head')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 #cover {
 	height:280px; 
@@ -64,29 +65,28 @@
     display: none; /* Hidden by default */
     width: 70%; /* Full width (cover the whole page) */
     height: 70%; /* Full height (cover the whole page) */
+    min-height: calc(50% + 200px);
     top: 15%;
     left:15%;
     right: 15%;
     bottom: 15%;
-    background-color: rgba(200,200,200,0.95); /* Black background with opacity */
+    background-color: rgba(50, 50, 50, 0.95);
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
 }
 </style>
 @endsection
 @section('content')
- <div id="frame">
- 	<button onclick="off()" class='btn btn-link'>Close</button>
- </div> 
+@include('layouts.profileUpdate') 
 <div class="container">
 	<div class="row">
 		<div id="cover" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 		<div class="cover">
 		<div class="overlay overlay-cover">
-    		<button onclick="on()" class='btn btn-link'>Update Cover Pic</button>
+    		<button onclick="" class='btn btn-link'>Update Cover Pic</button>
   		</div>
   		</div>
 		<div class='profile'>
-		<img src="/images/default.jpeg">
+		<img src="{{ $user_additional->profile_pic }}">
 		<div class="overlay overlay-profile">
     		<button onclick="on()" class='btn btn-link'>Update Profile Pic</button>
   		</div>
@@ -97,7 +97,7 @@
 	</div>
 	</div>
 	<div class="row" style="margin-top: 55px">
-        <div class="col-md-2 col-sm-2 col-md-offset-2">
+        <div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">{{ Auth::user()->name }}</div>
                 <div class="panel-body">

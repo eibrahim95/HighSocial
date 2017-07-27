@@ -16,6 +16,7 @@ class CreateAdditionalTable extends Migration
         Schema::create('additional_infos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->unique();
+            $table->string('username')->unique();
             $table->timestamp('birthday')->nullable();
             $table->string('profile_pic')->nullable();
             $table->string('cover_pic')->nullable();

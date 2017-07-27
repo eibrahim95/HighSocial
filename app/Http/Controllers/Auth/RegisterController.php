@@ -6,7 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\AdditionalInfo;
 class RegisterController extends Controller
 {
     /*
@@ -67,5 +67,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    protected function createAdditional($user_id)
+    {
+        return AdditionalInfo::create(['user_id' => $user_id, 'username' => $user_id]);
     }
 }

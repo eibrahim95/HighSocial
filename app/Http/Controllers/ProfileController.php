@@ -8,6 +8,7 @@ use App\FacebookUser;
 use App\HighsocialPost;
 use Carbon\Carbon;
 use Auth;
+use App\AdditionalInfo;
 class ProfileController extends Controller
 {
 	public function __construct()
@@ -25,7 +26,9 @@ class ProfileController extends Controller
     	else
     		$tab = 'home';
         $user = Auth::user();
+        $user_additional = AdditionalInfo::where('user_id', $user->id)->first();
         $user_posts = $user->highsocialPosts->toArray();
+        $user_profile = $user_additional->profile_pic;
         $fb_posts = Array();
 
         if ($user->facebook_id != NULL)
@@ -47,6 +50,6 @@ class ProfileController extends Controller
                 array_push($fb_posts, $fb_post);
             }
         }
-    	return view('profile', compact('id', 'tab', 'user_posts', 'fb_posts'));
+    	return view('profile', compact('id', 'tab', 'user_posts', 'fb_posts', 'user_additional'));
     }
 }

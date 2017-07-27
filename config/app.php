@@ -180,7 +180,8 @@ return [
         // custom
         Collective\Html\HtmlServiceProvider::class,
         Thujohn\Twitter\TwitterServiceProvider::class,
-        Mbarwick83\Instagram\InstagramServiceProvider::class
+        Mbarwick83\Instagram\InstagramServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*
@@ -235,7 +236,8 @@ return [
         'Twitter' => Thujohn\Twitter\Facades\Twitter::class,
 
         'Input' => Illuminate\Support\Facades\Input::class,
-        'Instagram'    => Mbarwick83\Instagram\Facades\Instagram::class
+        'Instagram'    => Mbarwick83\Instagram\Facades\Instagram::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

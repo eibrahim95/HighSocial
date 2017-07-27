@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 <div class="panel-heading">
 	<div class="row" style="margin-bottom: 10px;">
-		<div class="col-md-2 col-sm-2" style="width:90px"><img height="60" src="/images/default.jpeg"></div>
+		<div class="col-md-2 col-sm-2" style="width:90px"><img height="60" src="{{ $user_additional->profile_pic }}"></div>
 			<div class="col-md-3 col-sm-5">
 				<p class="lead" style='margin:0;'>
 				<a href="#">{!! App\User::where('id', $post['user_id'])->get()[0]->name !!}</a></p>

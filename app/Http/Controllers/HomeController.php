@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use app\HighsocialPost;
+use App\AdditionalInfo;
 use Facebook\Facebook;
 use App\FacebookUser;
 use App\FacebookPost;
@@ -29,6 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $user_additional = AdditionalInfo::where('user_id', $user->id)->first();
         $user_posts = $user->highsocialPosts->toArray();
         $fb_posts = Array();
 
@@ -51,6 +53,6 @@ class HomeController extends Controller
                 array_push($fb_posts, $fb_post);
             }
         }
-        return view('home', compact('user_posts', 'fb_posts'));
+        return view('home', compact('user_posts', 'fb_posts', 'user_additional'));
     }
 }
