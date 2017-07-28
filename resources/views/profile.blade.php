@@ -27,12 +27,12 @@
 	top:180px;
 	left: 50px;
 	background:black;
-	border:2px solid white;
+	border:1px solid white;
 	z-index:1;
 }
 .profile img {
-	width:146px;
-	height:146px;
+	width:148px;
+	height:148px;
 }
 .overlay {
   position: absolute;
@@ -98,7 +98,7 @@
   		</div>
   		</div>
 		<div class='profile'>
-		<img src="{{ $user_additional->profile_pic }}">
+		<img src="{{ $user_additional->profile_pic }}"  class="img-thumbnail">
 		<div class="overlay overlay-profile">
     		<button onclick="on()" class='btn btn-link'>Update Profile Pic</button>
   		</div>
@@ -114,20 +114,28 @@
 				</div>
 				</div>
 	<div class="row" style="margin-top: 55px">
-        <div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ Auth::user()->name }}</div>
-                <div class="panel-body">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a  href="#gn">General Feed</a></li>
-                        <li><a href="#fb">Facebook Feed</a></li>
-                        <li><a href="#tw">Twitter Feed</a></li>
-                        <li><a href="#in">Instagram Feed</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-2">
+        	@include('additional.viewAdd')
+        	@if ($user_additional->intro_text == NULL )
+        		@include('additional.introAdd')
+        	@endif
+        	@if ($user_additional->username == NULL or $user_additional->username == Auth::user()->id)
+        		@include('additional.usernameAdd')
+        	@endif
+        	@if($user_additional->birthday == NULL)
+        		@include('additional.birthdayAdd')
+        	@endif
+        	@if ($user_additional->born_at == NULL)
+        		@include('additional.bornatAdd')
+        	@endif
+        	@if ($user_additional->lives_at == NULL)
+        		@include('additional.livesatAdd')
+        	@endif
+        	@if ($user_additional->relationship == NULL)
+        		@include('additional.relationshipAdd')
+        	@endif
         </div>
-        <div class="col-md-6 col-sm-6">
+        <div class="col-md-5 col-sm-5">
             @include('layouts.postForm')
                     @foreach ($user_posts as $post)
                         @include('layouts.postView')

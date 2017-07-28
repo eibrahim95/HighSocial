@@ -4,23 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
     @if (App::environment() != 'local')
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     @else
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @endif
     <style>
-        @media (min-width: 1400px)
-        {
-            .container
-            {
+        @media (min-width: 1400px) {
+            .container {
                 width:1370px;
             }
         }
@@ -39,6 +32,14 @@
         .panel{
             margin-bottom: 5px;
         }
+        .lead {
+            font-size: 14px;
+        }
+        .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-sm-1,
+            .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6 {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
     </style>
     @yield('head')
 </head>
@@ -47,16 +48,12 @@
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
@@ -82,7 +79,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href={{ Auth::user()->id }}>
+                                        <a href={{ App\AdditionalInfo::where('user_id', Auth::user()->id)->first()->username }}>
                                             Profile
                                         </a>
                                     </li>

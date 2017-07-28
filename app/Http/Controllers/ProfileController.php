@@ -15,12 +15,18 @@ class ProfileController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index($id)
+    public function index($user_name)
     {
-    	if (Auth::user()->id != $id)
-    	{
-    		return redirect('home');
-    	}
+        if (AdditionalInfo::where('username', $user_name)->first()) {
+    	   if (Auth::user()->id != AdditionalInfo::where('username', $user_name)->first()->user_id )
+    	   {
+    		  return redirect('home');
+    	   }
+        }
+        else
+        {
+            return redirect('home');
+        }
     	if (isset( $_GET['tab'] ))
     		$tab = $_GET['tab'];
     	else

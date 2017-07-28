@@ -1,11 +1,11 @@
 <div class="panel panel-default">
 <div class="panel-heading">
 	<div class="row" style="margin-bottom: 10px;">
-		<div class="col-md-2 col-sm-2" style="width:90px"><img height="60" src="{{ $user_additional->profile_pic }}"></div>
+		<div class="col-md-2 col-sm-2" style="width:90px"><img height="60" class="img-circle" src="{{ $user_additional->profile_pic }}"></div>
 			<div class="col-md-3 col-sm-5">
 				<p class="lead" style='margin:0;'>
-				<a href="#">{!! App\User::where('id', $post['user_id'])->get()[0]->name !!}</a></p>
-				<p><a href="#" ><span class="glyphicon"></span>{!! $post['published_at']!!}</a></p>
+				<a href="/{!! App\AdditionalInfo::where('user_id', $post['user_id'])->first()->username !!}">{!! App\User::where('id', $post['user_id'])->get()[0]->name !!}</a></p>
+				<p><a href="/posts/{!! $post['id'] !!}" ><span class="glyphicon"></span>{!! $post['published_at']!!}</a></p>
 		</div>
 	</div>
 </div>
