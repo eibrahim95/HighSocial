@@ -4,11 +4,7 @@
 	<div class="row">
         <div class="col-md-4 ">
             <div class="panel panel-default">
-                @if (App::environment() != 'local')
-                    <img width="200" heigh="200" src="{{ secure_asset('images/default.jpeg') }}">
-                @else
-                    <img width="200" heigh="200" style="margin:0 auto" src="{{ asset('images/default.jpeg') }}">
-                @endif
+                    <img width="200" heigh="200" src="{{ App\AdditionalInfo::where('user_id', Auth::user()->id)->first()->profile_pic }}">
             
             	<div class="panel-heading">{{ Auth::user()->name }}</div>
                 <div class="panel-body">
