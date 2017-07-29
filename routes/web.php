@@ -42,6 +42,11 @@ Route::get('ajaxImageUpload', ['uses'=>'AjaxImageUploadController@ajaxImageUploa
 Route::post('ajaxImageUpload', ['as'=>'ajaxImageUpload','uses'=>'AjaxImageUploadController@ajaxImageUploadPost']);
 
 Route::post('add_info', 'AdditionalInfoController@store');
+
 Route::get('posts.{post_id}', 'FacebookUserController@store');
+Route::get('fposts.{post_id}', 'FacebookUserController@store');
+Route::get('tweets.{post_id}', 'FacebookUserController@store');
+Route::get('instas.{post_id}', 'FacebookUserController@store');
 Route::get('{user_name}', 'ProfileController@index');
+
 Route::post('{user_name}', 'FacebookUserController@store');

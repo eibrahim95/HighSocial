@@ -3,7 +3,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 #cover {
-	width: :100%;
 	height:280px; 
 	background:black;
 	padding:0;
@@ -89,7 +88,7 @@
 @include('layouts.profileUpdate') 
 <div class="container">
 	<div class="row">
-		<div id="cover" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+		<div id="cover" class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
 			<div id="cover_pic"><img id="cover_img" src="{{ $user_additional->cover_pic }}"></div>
 		<div class="cover">
 		<div class="overlay overlay-cover">
@@ -109,12 +108,12 @@
 	</div>
 	</div>
 	<div class=row>
-				<div class="col-md-4 col-md-offset-4 alert alert-danger print-error-msg" style="display:none">
+				<div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 alert alert-danger print-error-msg" style="display:none">
 					<ul></ul>
 				</div>
 				</div>
 	<div class="row" style="margin-top: 55px">
-        <div class="col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-2">
+        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-sm-3 col-md-offset-2 col-sm-offset-2">
         	@include('additional.viewAdd')
         	@if ($user_additional->intro_text == NULL )
         		@include('additional.introAdd')
@@ -135,7 +134,7 @@
         		@include('additional.relationshipAdd')
         	@endif
         </div>
-        <div class="col-md-5 col-sm-5">
+        <div class="col-lg-5 col-md-5 col-sm-5">
             @include('layouts.postForm')
                     @foreach ($user_posts as $post)
                         @include('layouts.postView')
