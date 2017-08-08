@@ -1,13 +1,12 @@
 <?php
 Route::get('/', function () {
 	if (Auth::check())
-	{
 		return redirect('home');
-	}
 	else
-	{
 		return view('welcome');
-	}
+});
+Route::get('/privacy', function(){
+	return view('privacy');
 });
 Auth::routes();
 
@@ -15,20 +14,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/facebook/disconnect', 'FacebookUserController@disconnect');
 Route::post('/fbpost', 'FacebookPostController@store');
 
-
 Route::get('twitter/connect', 'TwitterUserController@connect');
 Route::get('twitter/disconnect', 'TwitterUserController@disconnect');
 Route::get('twitter/callback', ['as'=>'twitter.callback', 'uses' => 'TwitterUserController@store']);
-Route::get('twitter/error', ['as' => 'twitter.error', function(){
-	dd('some error');
-}]);
-
-Route::get('twitter/logout', ['as' => 'twitter.logout', function(){
-	Session::forget('access_token');
-	return Redirect::to('/')->with('flash_notice', 'You\'ve successfully logged out!');
-}]);
-
-
+Route::get('twitter/error', ['as' => 'twitter.error', function(){ dd('some error'); }]);
 Route::get('instagram/connect', 'InstagramUserController@connect');
 Route::get('instagram/callback', 'InstagramUserController@store');
 
